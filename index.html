@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Site Minimal</title>
+  <meta charset="UTF-8">
+  <title>One Cookie</title>
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Georgia, serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Times New Roman", serif;
+      height: 300vh;
     }
 
     .hero {
+      position: sticky;
+      top: 0;
       height: 100vh;
       overflow: hidden;
-      position: relative;
     }
 
     .hero img {
@@ -20,38 +28,43 @@
       height: 100%;
       object-fit: cover;
       transform: scale(1);
-      transition: transform 0.1s linear;
+      will-change: transform;
     }
 
-    .hero h1 {
+    .hero-text {
       position: absolute;
-      bottom: 40px;
-      left: 40px;
+      bottom: 60px;
+      left: 60px;
       color: white;
       font-size: 3rem;
+      line-height: 1.1;
+      z-index: 2;
     }
 
-    section {
-      padding: 100px 40px;
+    .spacer {
+      height: 200vh;
     }
   </style>
 </head>
+
 <body>
 
   <div class="hero">
-   <img src="images/hero.jpg" />
-    <h1>One product.<br>Done right.</h1>
+    <img src="images/hero.jpg" id="heroImage">
+    <div class="hero-text">
+      One cookie.<br>
+      Nothing else.
+    </div>
   </div>
 
-  <section>
-    <p>Role a página para ver o efeito.</p>
-  </section>
+  <div class="spacer"></div>
 
   <script>
     window.addEventListener("scroll", () => {
       const scroll = window.scrollY;
-      const scale = 1 + scroll / 2000;
-      document.querySelector(".hero img").style.transform =
+      const scale = 1 + scroll / 2500;
+
+      document.getElementById("heroImage").style.transform =
         `scale(${Math.min(scale, 1.25)})`;
     });
   </script>
