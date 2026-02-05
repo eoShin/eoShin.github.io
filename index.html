@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Site Minimal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+    }
+
+    .hero {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 0.1s linear;
+    }
+
+    .hero h1 {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      color: white;
+      font-size: 3rem;
+    }
+
+    section {
+      padding: 100px 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1604908177522-402b8b9fa5b7" />
+    <h1>One product.<br>Done right.</h1>
+  </div>
+
+  <section>
+    <p>Role a página para ver o efeito.</p>
+  </section>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const scroll = window.scrollY;
+      const scale = 1 + scroll / 2000;
+      document.querySelector(".hero img").style.transform =
+        `scale(${Math.min(scale, 1.25)})`;
+    });
+  </script>
+
+</body>
+</html>
